@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ederlyn C. Sarmiento | ICT Teacher Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #F9D342;
+            --white: #FFFFFF;
+            --dark-brown: #402E32;
+            --light-brown: #6B4F4F;
+            --pale-yellow: #FFF8E1;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-brown);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(64, 46, 50, 0.95);
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            color: var(--yellow);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--yellow);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--pale-yellow) 0%, var(--yellow) 100%);
+            display: flex;
+            align-items: center;
+            padding: 4rem 5%;
+        }
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero-text .tagline {
+            font-size: 1.3rem;
+            color: var(--light-brown);
+            margin-bottom: 2rem;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background-color: var(--dark-brown);
+            color: var(--yellow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(64, 46, 50, 0.3);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark-brown);
+            border: 2px solid var(--dark-brown);
+        }
+        .btn-secondary:hover {
+            background-color: var(--dark-brown);
+            color: var(--yellow);
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+        .avatar-circle {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background-color: var(--dark-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(64, 46, 50, 0.4);
+        }
+        .avatar-placeholder {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: var(--yellow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--dark-brown);
+            font-weight: 700;
+        }
+        /* Section Base */
+        section {
+            padding: 5rem 5%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* About */
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        /* Skills */
+        .skills {
+            background-color: var(--pale-yellow);
+        }
+        .skills-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .skill-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(64, 46, 50, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+        .skill-card h3 {
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--yellow);
+            padding-bottom: 0.5rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            background-color: var(--yellow);
+            color: var(--dark-brown);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        /* Timeline Base */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--yellow);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 70px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 18px;
+            top: 5px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--dark-brown);
+            border: 4px solid var(--yellow);
+        }
+        .timeline-content {
+            background-color: var(--pale-yellow);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(64, 46, 50, 0.1);
+        }
+        .timeline-content h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.3rem;
+        }
+        .timeline-period {
+            font-weight: 600;
+            color: var(--light-brown);
+            margin-bottom: 0.8rem;
+        }
+        /* Achievements */
+        .achievements {
+            background-color: var(--pale-yellow);
+        }
+        .achievements-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        .achievements-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0d999;
+            position: relative;
+            padding-left: 2rem;
+        }
+        .achievements-list li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--dark-brown);
+            font-size: 1.3rem;
+        }
+        /* Contact */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        .contact-item a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            border-bottom: 2px solid var(--yellow);
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: var(--light-brown);
+        }
+        .social-links {
+            margin-top: 2rem;
+        }
+        .social-links a {
+            display: inline-block;
+            background-color: var(--dark-brown);
+            color: var(--yellow);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            margin: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--yellow);
+            color: var(--dark-brown);
+        }
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--yellow);
+            text-align: center;
+            padding: 2rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(64, 46, 50, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .avatar-circle {
+                width: 280px;
+                height: 280px;
+            }
+            .avatar-placeholder {
+                width: 260px;
+                height: 260px;
+                font-size: 3.5rem;
+            }
+            .timeline::before {
+                left: 15px;
+            }
+            .timeline-item {
+                padding-left: 45px;
+            }
+            .timeline-dot {
+                left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">ECS</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text fade-in">
+                <h1>Ederlyn C. Sarmiento</h1>
+                <p class="tagline">ICT Teacher | Creative Educator | Tech Enthusiast</p>
+                <p>A passionate educator blending technology, art, and innovation to inspire learners. From Information Systems to classrooms in the Philippines and Thailand — making learning fun, accessible, and meaningful.</p>
+                <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                <a href="#experience" class="btn btn-secondary">View My Work</a>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="avatar-circle">
+                    <div class="avatar-placeholder">
+                        <span>ECS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content fade-in">
+            <p>I hold a Bachelor's degree in Information Systems and have nearly three years of experience inspiring students at Clarendon College, followed by teaching college students at STI Global City. After earning my teaching license in the Philippines, I expanded my practice to Thailand — first teaching mathematics to young learners at โรงเรียนจินดาพร, and currently teaching Computer Science to high school students at Ramkhamhaeng Advent International School (RAIS).</p>
+            <br>
+            <p>My unique strength lies at the intersection of <strong>technology and art</strong> — combining programming, web development, and digital design with creative teaching approaches that make complex concepts approachable and exciting. Whether it's HTML & CSS, Arduino, Python, or Adobe Creative Suite, I believe ICT should empower every learner to create, not just consume.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title fade-in">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <h3>💻 Programming & ICT</h3>
+                <p>Building digital foundations from code to circuits.</p>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>🎨 Digital Creativity</h3>
+                <p>Design that communicates and captivates.</p>
+                <div class="skill-tags">
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Illustrator</span>
+                    <span class="tag">Premiere Pro</span>
+                    <span class="tag">InDesign</span>
+                    <span class="tag">CapCut</span>
+                    <span class="tag">Lightroom</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>📚 Teaching & Curriculum</h3>
+                <p>Planning, assessing, and inspiring growth.</p>
+                <div class="skill-tags">
+                    <span class="tag">Lesson Planning</span>
+                    <span class="tag">Curriculum Design</span>
+                    <span class="tag">Classroom Management</span>
+                    <span class="tag">Assessment</span>
+                    <span class="tag">Differentiated Instruction</span>
+                    <span class="tag">American Curriculum</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>🤝 Soft Skills</h3>
+                <p>Connecting with learners and colleagues.</p>
+                <div class="skill-tags">
+                    <span class="tag">Communication</span>
+                    <span class="tag">Adaptability</span>
+                    <span class="tag">Empathy</span>
+                    <span class="tag">Creativity</span>
+                    <span class="tag">Collaboration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title fade-in">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>High School Computer Science Teacher</h3>
+                    <p class="timeline-period"><a href="https://rais.ac.th" target="_blank" style="color:inherit; border-bottom: 1px solid var(--yellow);">Ramkhamhaeng Advent International School (RAIS)</a>, Bangkok, Thailand | SY 2026 – Present</p>
+                    <ul>
+                        <li>Teach high school students website development using HTML, CSS, PHP, and MySQL</li>
+                        <li>Develop and implement engaging ICT curriculum aligned with American standards</li>
+                        <li>Guide students in web development and programming concepts</li>
+                        <li>Instruct graduating students in C++ programming and its application through Arduino projects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Primary Mathematics Teacher</h3>
+                    <p class="timeline-period">โรงเรียนจินดาพร (Jindaporn School), Thailand | SY 2024 – 2026</p>
+                    <ul>
+                        <li>Designed and delivered engaging mathematics lessons, making concepts fun and accessible</li>
+                        <li>Assessed student progress and provided targeted support to diverse learners</li>
+                        <li>Collaborated with colleagues to enhance the learning environment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Tertiary ICT Instructor</h3>
+                    <p class="timeline-period">STI College Global City | SY 2023 – 2024</p>
+                    <ul>
+                        <li>Developed and implemented ICT curriculum including programming and web development</li>
+                        <li>Conducted assessments, grading, and provided constructive feedback</li>
+                        <li>Promoted coding and technology literacy across disciplines</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>JHS & SHS ICT Teacher</h3>
+                    <p class="timeline-period">Clarendon College | SY 2020 – 2023</p>
+                    <ul>
+                        <li>Taught HTML, CSS, JavaScript, Java, C++, and Arduino programming</li>
+                        <li>Managed computer laboratories and performed basic troubleshooting and maintenance</li>
+                        <li>Journalism Adviser — Cartoonist & Photojournalist, SY 2022–2023</li>
+                        <li>Served as Cooperating Teacher, mentoring pre-service educators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="skills">
+        <h2 class="section-title fade-in">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Science in Information Systems</h3>
+                    <p class="timeline-period">Clarendon College Inc. | Graduated 2020</p>
+                    <p><strong>Awards:</strong> Best in Practicum, Leadership Award</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Professional Education (18 Units)</h3>
+                    <p class="timeline-period">Clarendon College Inc. | 2020 – 2021</p>
+                    <p>Completed licensure-aligned teacher training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <h2 class="section-title fade-in">Achievements & Highlights</h2>
+        <ul class="achievements-list">
+            <li class="fade-in">Best in Practicum & Leadership Awardee — Clarendon College</li>
+            <li class="fade-in">Cooperating Teacher — Senior High School Practice Teaching, SY 2021–2023</li>
+            <li class="fade-in">Journalism Adviser — Cartoonist & Photojournalist, SY 2022–2023</li>
+            <li class="fade-in">Resource Person — Livelihood Program (Crochet & Handicrafts)</li>
+            <li class="fade-in">Member — Guhit Pinas Arts Program, Oriental Mindoro</li>
+            <li class="fade-in">Completed training in Python Programming Essentials, Cybersecurity, LAN Design & Switching, and numerous professional education seminars</li>
+            <li class="fade-in">Artist — Guhit Pinas & Roxas Arts Club; Former Secretary, MBYF</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Get In Touch</h2>
+        <div class="contact-content fade-in">
+            <p class="contact-item">📧 Email: <a href="mailto:ecsarmiento03@gmail.com">ecsarmiento03@gmail.com</a></p>
+            <p class="contact-item">📱 Phone: +66 939659126</p>
+            <p class="contact-item">📍 Hua Mak, Bang Kapi, Bangkok 10240, Thailand</p>
+            
+            <div class="social-links">
+                <a href="https://youtube.com/@ederlyncs?si=XCeOnUOYXnw6F_44" target="_blank">▶ YouTube</a>
+                <a href="https://web.facebook.com/TeacherEd" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/portraitartist_080808" target="_blank">📷 Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ederlyn C. Sarmiento — Made with 💛 & code</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
