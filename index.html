@@ -311,6 +311,34 @@
             color: var(--dark-brown);
             font-size: 1.3rem;
         }
+        /* Portfolio */
+        .portfolio-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .portfolio-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(64, 46, 50, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-card a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .portfolio-card a:hover {
+            color: var(--light-brown);
+        }
         /* Contact */
         .contact-content {
             max-width: 700px;
@@ -380,6 +408,9 @@
             .hero-text h1 {
                 font-size: 2.5rem;
             }
+            .hero-text p {
+                max-width: 100%;
+            }
             .avatar-circle {
                 width: 280px;
                 height: 280px;
@@ -412,7 +443,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -519,7 +550,7 @@
                 <div class="timeline-content">
                     <h3>High School Computer Science Teacher</h3>
                     <p class="timeline-period"><a href="https://rais.ac.th" target="_blank" style="color:inherit; border-bottom: 1px solid var(--yellow);">Ramkhamhaeng Advent International School (RAIS)</a>, Bangkok, Thailand | SY 2026 – Present</p>
-                    <ul>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                         <li>Teach high school students website development using HTML, CSS, PHP, and MySQL</li>
                         <li>Develop and implement engaging ICT curriculum aligned with American standards</li>
                         <li>Guide students in web development and programming concepts</li>
@@ -527,39 +558,36 @@
                     </ul>
                 </div>
             </div>
-
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>Primary Mathematics Teacher</h3>
                     <p class="timeline-period">โรงเรียนจินดาพร (Jindaporn School), Thailand | SY 2024 – 2026</p>
-                    <ul>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                         <li>Designed and delivered engaging mathematics lessons, making concepts fun and accessible</li>
                         <li>Assessed student progress and provided targeted support to diverse learners</li>
                         <li>Collaborated with colleagues to enhance the learning environment</li>
                     </ul>
                 </div>
             </div>
-
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>Tertiary ICT Instructor</h3>
                     <p class="timeline-period">STI College Global City | SY 2023 – 2024</p>
-                    <ul>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                         <li>Developed and implemented ICT curriculum including programming and web development</li>
                         <li>Conducted assessments, grading, and provided constructive feedback</li>
                         <li>Promoted coding and technology literacy across disciplines</li>
                     </ul>
                 </div>
             </div>
-
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>JHS & SHS ICT Teacher</h3>
                     <p class="timeline-period">Clarendon College | SY 2020 – 2023</p>
-                    <ul>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                         <li>Taught HTML, CSS, JavaScript, Java, C++, and Arduino programming</li>
                         <li>Managed computer laboratories and performed basic troubleshooting and maintenance</li>
                         <li>Journalism Adviser — Cartoonist & Photojournalist, SY 2022–2023</li>
@@ -608,17 +636,29 @@
     </section>
 
     <!-- Website Portfolio -->
-    <section id="contact">
+    <section id="portfolio">
         <h2 class="section-title fade-in">Website Portfolio</h2>
-                <a href="https://ecsarmiento.github.io/MyDrawingStudio/">🎨 Arts Studio Drawing Simulation</a>
-                <a href="https://ecsarmiento.github.io/oxford-quiz/">🎨 Oxford Quiz</a>
-                <a href="https://ecsarmiento.github.io/Teacher_Eds_Alphabet_Site/">📘 Teacher Eds Alphabet Site</a>
-                <a href="https://ecsarmiento.github.io/SampleGames//">🎮 Sample Games</a>
-                <a href="https://ecsarmiento.github.io/david-lesson/">✝️ Lesson: David in the Bible</a>
-    <!-- Contact Section -->   
-     <section id="contact">
-        <h2 class="section-title fade-in">Contact</h2>
-        <div class="contact-content fade-in">
+        <div class="portfolio-grid fade-in">
+            <div class="portfolio-card">
+                <a href="https://ecsarmiento.github.io/MyDrawingStudio/" target="_blank">🎨 Arts Studio Drawing Simulation</a>
+            </div>
+            <div class="portfolio-card">
+                <a href="https://ecsarmiento.github.io/oxford-quiz/" target="_blank">📚 Oxford Quiz</a>
+            </div>
+            <div class="portfolio-card">
+                <a href="https://ecsarmiento.github.io/Teacher_Eds_Alphabet_Site/" target="_blank">📘 Teacher Eds Alphabet Site</a>
+            </div>
+            <div class="portfolio-card">
+                <a href="https://ecsarmiento.github.io/SampleGames/" target="_blank">🎮 Sample Games</a>
+            </div>
+            <div class="portfolio-card">
+                <a href="https://ecsarmiento.github.io/david-lesson/" target="_blank">✝️ Lesson: David in the Bible</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
         <h2 class="section-title fade-in">Get In Touch</h2>
         <div class="contact-content fade-in">
             <p class="contact-item">📧 Email: <a href="mailto:ecsarmiento03@gmail.com">ecsarmiento03@gmail.com</a></p>
@@ -628,7 +668,6 @@
                 <a href="https://youtube.com/@ederlyncs?si=XCeOnUOYXnw6F_44" target="_blank">▶ YouTube</a>
                 <a href="https://web.facebook.com/TeacherEd" target="_blank">🌐 Facebook</a>
                 <a href="https://www.instagram.com/portraitartist_080808" target="_blank">📷 Instagram</a>
-
             </div>
         </div>
     </section>
@@ -646,14 +685,12 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-
         // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
-
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
@@ -663,7 +700,6 @@
                 }
             });
         }, { threshold: 0.1 });
-
         fadeElements.forEach(el => observer.observe(el));
     </script>
 </body>
