@@ -317,32 +317,52 @@
             color: var(--dark-brown);
             font-size: 1.3rem;
         }
-        /* Portfolio */
+        /* Portfolio — 3 columns, each card has 3 inner divs */
         .portfolio-grid {
-            max-width: 300px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
         .portfolio-card {
             background-color: var(--white);
-            padding: 1.5rem;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(64, 46, 50, 0.1);
             transition: transform 0.3s ease;
+            overflow: hidden;
         }
         .portfolio-card:hover {
             transform: translateY(-5px);
         }
         .portfolio-card a {
+            display: flex;
+            flex-direction: column;
             color: var(--dark-brown);
             text-decoration: none;
+            height: 100%;
+        }
+        /* --- The 3 inner divs --- */
+        .card-icon {
+            background-color: var(--pale-yellow);
+            padding: 1.8rem 1rem;
+            font-size: 3rem;
+            line-height: 1;
+        }
+        .card-title {
+            padding: 1rem 1rem 0.4rem;
             font-weight: 600;
             font-size: 1.1rem;
+            color: var(--dark-brown);
         }
-        .portfolio-card a:hover {
+        .card-desc {
+            padding: 0 1rem 1.3rem;
+            font-size: 0.9rem;
+            color: var(--light-brown);
+            font-weight: 400;
+        }
+        .portfolio-card a:hover .card-title {
             color: var(--light-brown);
         }
         /* Contact */
@@ -390,6 +410,12 @@
             padding: 2rem;
         }
         /* Responsive */
+        @media (max-width: 900px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
             .nav-links {
                 position: absolute;
@@ -459,29 +485,26 @@
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text fade-in">
                 <h1>Ederlyn Claud Sarmiento</h1>
                 <p class="tagline">ICT Teacher | Creative Educator | Tech Enthusiast | Artist</p>
-                  <i><small><p class="tagline">"Where technology becomes art, and art inspires learning!"</p><small></i> 
+                <p class="tagline"><small><em>"Where technology becomes art, and art inspires learning!"</em></small></p>
                 <p>A passionate educator blending technology, art, and innovation to inspire learners. From Information Systems to classrooms in the Philippines and Thailand — making learning fun, accessible, and meaningful.</p>
                 <a href="#contact" class="btn btn-primary">Let's Connect</a>
-                <a href="#experience" class="btn btn-secondary">View My Work</a> 
+                <a href="#experience" class="btn btn-secondary">View My Work</a>
             </div>
             <div class="hero-visual fade-in">
                 <div class="avatar-circle">
                     <div class="avatar-placeholder">
                         <span>ECS</span>
-                  
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title fade-in">About Me</h2>
@@ -491,7 +514,6 @@
             <p>My unique strength lies at the intersection of <strong>technology and art</strong> — combining programming, web development, and digital design with creative teaching approaches that make complex concepts approachable and exciting. Whether it's HTML & CSS, Arduino, Python, or Adobe Creative Suite, I believe ICT should empower every learner to create, not just consume.</p>
         </div>
     </section>
-
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2 class="section-title fade-in">Skills & Expertise</h2>
@@ -548,7 +570,6 @@
             </div>
         </div>
     </section>
-
     <!-- Experience Section -->
     <section id="experience">
         <h2 class="section-title fade-in">Work Experience</h2>
@@ -605,7 +626,6 @@
             </div>
         </div>
     </section>
-
     <!-- Education Section -->
     <section id="education" class="skills">
         <h2 class="section-title fade-in">Education</h2>
@@ -628,7 +648,6 @@
             </div>
         </div>
     </section>
-
     <!-- Achievements Section -->
     <section id="achievements" class="achievements">
         <h2 class="section-title fade-in">Achievements & Highlights</h2>
@@ -642,29 +661,47 @@
             <li class="fade-in">Artist — Guhit Pinas & Roxas Arts Club; Former Secretary, MBYF</li>
         </ul>
     </section>
-
-    <!-- Website Portfolio -->
+    <!-- Website Portfolio — each card now has 3 inner divs: icon / title / desc -->
     <section id="portfolio">
         <h2 class="section-title fade-in">Website Portfolio</h2>
         <div class="portfolio-grid fade-in">
             <div class="portfolio-card">
-                <a href="https://ecsarmiento.github.io/MyDrawingStudio/" target="_blank">🎨 Arts Studio Drawing Simulation</a>
+                <a href="https://ecsarmiento.github.io/MyDrawingStudio/" target="_blank">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-title">Arts Studio Drawing Simulation</div>
+                    <div class="card-desc">Interactive drawing and coloring practice tool</div>
+                </a>
             </div>
             <div class="portfolio-card">
-                <a href="https://ecsarmiento.github.io/oxford-quiz/" target="_blank">📚 Oxford Quiz</a>
+                <a href="https://ecsarmiento.github.io/oxford-quiz/" target="_blank">
+                    <div class="card-icon">📚</div>
+                    <div class="card-title">Oxford Quiz</div>
+                    <div class="card-desc">Test your knowledge with a fun interactive quiz</div>
+                </a>
             </div>
             <div class="portfolio-card">
-                <a href="https://ecsarmiento.github.io/Teacher_Eds_Alphabet_Site/" target="_blank">📘 Teacher Eds Alphabet Site</a>
+                <a href="https://ecsarmiento.github.io/Teacher_Eds_Alphabet_Site/" target="_blank">
+                    <div class="card-icon">📘</div>
+                    <div class="card-title">Teacher Eds Alphabet Site</div>
+                    <div class="card-desc">Learn the alphabet with engaging lessons</div>
+                </a>
             </div>
             <div class="portfolio-card">
-                <a href="https://ecsarmiento.github.io/SampleGames/" target="_blank">🎮 Sample Games</a>
+                <a href="https://ecsarmiento.github.io/SampleGames/" target="_blank">
+                    <div class="card-icon">🎮</div>
+                    <div class="card-title">Sample Games</div>
+                    <div class="card-desc">A collection of browser-based mini games</div>
+                </a>
             </div>
             <div class="portfolio-card">
-                <a href="https://ecsarmiento.github.io/david-lesson/" target="_blank">✝️ Lesson: David in the Bible</a>
+                <a href="https://ecsarmiento.github.io/david-lesson/" target="_blank">
+                    <div class="card-icon">✝️</div>
+                    <div class="card-title">Lesson: David in the Bible</div>
+                    <div class="card-desc">Bible study lesson on the life of David</div>
+                </a>
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <h2 class="section-title fade-in">Get In Touch</h2>
@@ -679,13 +716,11 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <p>© 2026 Ederlyn Sarmiento — Made with 💛 & code!</p>
-         <p> --> Galatians 5:13 <-- </p>
+        <p>Galatians 5:13</p>
     </footer>
-
     <!-- JavaScript -->
     <script>
         // Mobile menu toggle
